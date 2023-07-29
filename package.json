@@ -1,6 +1,5 @@
 {
   "name": "ElemKits",
-  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build"
@@ -11,8 +10,7 @@
     "astro": "^2.9.2",
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
-    "marked": "^4.2.12",
-    "react-icons": "^4.7.1"
+    "marked": "^4.2.12"
   },
   "devDependencies": {
     "@astrojs/react": "^2.0.2",
