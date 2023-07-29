@@ -1,10 +1,8 @@
 ---
+import * as ReactIcons from "react-icons/io5";
 const { source, className } = Astro.props;
-
-import pkg from "react-icons/io5/index.esm.js";
-const { IoLogoTwitter, IoMail } = pkg;
-
 const { twitter, email } = source;
+const { IoLogoTwitter, IoMail } = ReactIcons;
 ---
 
 <ul class={className}>
