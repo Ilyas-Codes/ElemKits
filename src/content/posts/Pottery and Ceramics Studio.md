@@ -1,10 +1,29 @@
 ---
 title: Pottery and Ceramics Studio
-description: The Pottery and Ceramics Studio Elementor Template Kit is a versatile and visually stunning collection of pre-designed templates tailored for creative businesses in the pottery and ceramics industry. With its user-friendly Elementor integration, this kit offers a seamless and customizable way to build professional websites that showcase the artistry and craftsmanship of pottery and ceramics studios.
+description: Discover the perfect solution for your pottery and ceramics studio with our free Elementor Template Kit. Streamline your website creation process and showcase your artistic offerings in a captivating manner. The Elementor Kit includes a variety of beautifully designed templates that can be easily customized to suit your studio's unique style. Create an engaging online presence, attract more customers, and elevate your pottery business with this user-friendly, cost-effective, and aesthetically pleasing Template Kit. Unleash your creativity and let your studio flourish!
 categories: ["business"]
 tags: art, ceramic, decoration, furniture, gifts, handcraft, handmade, interior, pottery, pottery studio, retail, store
 iframe: https://askproject.net/klay/home/
 image: /images/posts/Pottery and Ceramics Studio.jpeg
-pages: ["Home", "404"]
+pages:
+  [
+    "Global Theme Style",
+    "Home",
+    "About",
+    "Classes",
+    "Class Detail",
+    "Portfolio",
+    "FAQs Page",
+    "Pricing",
+    "Team",
+    "Testimonials",
+    "404 Page",
+    "Blog",
+    "Single Post",
+    "Contact",
+    "Header Offcanvas",
+    "Header",
+    "Footer",
+  ]
 download: https://www.lemonsqueezy.com/
 ---
