@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { humanize, slugify } from "@lib/utils/textConverter";
-import * as ReactIcons from "react-icons/fi";
+import * as ReactIcons from "react-icons/fi/index";
 import Fuse from "fuse.js";
 const { FiDownload, FiArrowUpRight } = ReactIcons;
 
