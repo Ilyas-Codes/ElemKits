@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { humanize, slugify } from "@lib/utils/textConverter";
-import { FiDownload, FiArrowUpRight } from "react-icons/fi";
+import * as ReactIcons from "react-icons/fi";
 import Fuse from "fuse.js";
+const { FiDownload, FiArrowUpRight } = ReactIcons;
 
 export type SearchItem = {
   slug: string;

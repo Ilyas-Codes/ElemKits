@@ -1,10 +1,15 @@
 ---
 import Logo from "@components/Logo.astro";
 import menu from "@config/menu.json";
-import { SlMenu } from "react-icons/sl";
-import { VscChromeClose } from "react-icons/vsc";
-import { IoMdSunny } from "react-icons/io";
-import { PiMoonFill } from "react-icons/pi";
+import * as SlIcons from "react-icons/sl";
+import * as VscIcons from "react-icons/vsc";
+import * as IoIcons from "react-icons/io";
+import * as PiIcons from "react-icons/pi";
+
+const { SlMenu } = SlIcons;
+const { VscChromeClose } = VscIcons;
+const { IoMdSunny } = IoIcons;
+const { PiMoonFill } = PiIcons;
 
 export interface ChildNavigationLink {
   name: string;

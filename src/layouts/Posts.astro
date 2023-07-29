@@ -1,7 +1,8 @@
 ---
 import { Image } from "@astrojs/image/components";
 import { humanize, slugify } from "@lib/utils/textConverter";
-import { FiDownload, FiArrowUpRight } from "react-icons/fi";
+import * as ReactIcons from "react-icons/fi";
+const { FiDownload, FiArrowUpRight } = ReactIcons;
 const { posts } = Astro.props;
 ---
 

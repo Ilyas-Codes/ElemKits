@@ -2,9 +2,11 @@
 import Base from "@layouts/Base.astro";
 import config from "@config/config.json";
 import social from "@config/social.json";
-import { GoCheckCircleFill, GoXCircleFill } from "react-icons/go";
-import { FiUpload } from "react-icons/fi";
+import * as GoIcons from "react-icons/go";
+import * as FiIcons from "react-icons/fi";
 
+const { GoCheckCircleFill, GoXCircleFill } = GoIcons;
+const { FiUpload } = FiIcons;
 const { contact_form_action } = config.params;
 const { email } = social;
 ---

@@ -1,5 +1,6 @@
 ---
-import { RxArrowLeft, RxArrowRight } from "react-icons/rx";
+import * as ReactIcons from "react-icons/rx";
+const { RxArrowLeft, RxArrowRight } = ReactIcons;
 const { section, currentPage, totalPages } = Astro.props;
 
 const indexPageLink = currentPage === 2;
