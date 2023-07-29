@@ -1,16 +1,14 @@
 ---
 import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
 import BackToTop from "./components/BackToTop.astro";
-import * as FiIcons from "react-icons/fi/index";
-import * as GoIcons from "react-icons/go/index";
-import * as CgIcons from "react-icons/cg/index";
-import * as PiIcons from "react-icons/pi/index";
-
-const { FiDownload, FiArrowUpRight } = FiIcons;
-const { GoCheckCircleFill } = GoIcons;
-const { CgSpinner } = CgIcons;
-const { PiDesktopFill, PiDeviceTabletSpeakerFill, PiDeviceMobileSpeakerFill } =
-  PiIcons;
+import { FiDownload, FiArrowUpRight } from "react-icons/fi/index";
+import { GoCheckCircleFill } from "react-icons/go/index";
+import { CgSpinner } from "react-icons/cg/index";
+import {
+  PiDesktopFill,
+  PiDeviceTabletSpeakerFill,
+  PiDeviceMobileSpeakerFill,
+} from "react-icons/pi/index";
 const { post } = Astro.props;
 const { title, description, categories, highlights, pages, iframe, download } =
   post.data;

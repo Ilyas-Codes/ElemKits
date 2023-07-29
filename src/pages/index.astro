@@ -5,12 +5,10 @@ import Pagination from "@layouts/components/Pagination.astro";
 import Posts from "@layouts/Posts.astro";
 import { getSinglePage } from "@lib/contentParser.astro";
 import { sortByDate } from "@lib/utils/sortFunctions";
-import * as HiIcons from "react-icons/hi/index";
-import * as BiIcons from "react-icons/bi/index";
+import { HiOutlineSearch } from "react-icons/hi/index";
+import { BiSolidCategory } from "react-icons/bi/index";
 import BackToTop from "@layouts/components/BackToTop.astro";
 
-const { HiOutlineSearch } = HiIcons;
-const { BiSolidCategory } = BiIcons;
 const posts = await getSinglePage("posts");
 const sortedPosts = sortByDate(posts);
 const totalPages = Math.ceil(posts.length / config.settings.pagination);
