@@ -1,7 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
 import config from "@config/config.json";
-const { src } = Astro.props;
 const {
   logo,
   logo_dark,
@@ -26,62 +24,16 @@ const {
 ---
 
 <a class="dark:hidden 2xs:hidden" href="/">
-  {
-    src || logo ? (
-      <Image
-        width={logo_width.replace("px", "") * 2}
-        height={logo_height.replace("px", "") * 2}
-        src={logo}
-        alt={title}
-        style={{
-          height: logo_height.replace("px", "") + "px",
-          width: logo_width.replace("px", "") + "px",
-        }}
-      />
-    ) : logo_text ? (
-      logo_text
-    ) : (
-      title
-    )
-  }
+  <img width={logo_width} height={logo_height} src={logo} alt={title} />
 </a>
 <a class="hidden dark:block dark:2xs:hidden" href="/">
-  {
-    src || logo ? (
-      <Image
-        width={logo_width.replace("px", "") * 2}
-        height={logo_height.replace("px", "") * 2}
-        src={logo_dark}
-        alt={title}
-        style={{
-          height: logo_height.replace("px", "") + "px",
-          width: logo_width.replace("px", "") + "px",
-        }}
-      />
-    ) : logo_text ? (
-      logo_text
-    ) : (
-      title
-    )
-  }
+  <img width={logo_width} height={logo_height} src={logo_dark} alt={title} />
 </a>
 <a class="hidden 2xs:block" href="/">
-  {
-    src || logo ? (
-      <Image
-        width={logo_mobile_width.replace("px", "") * 2}
-        height={logo_mobile_height.replace("px", "") * 2}
-        src={logo_mobile}
-        alt={title}
-        style={{
-          height: logo_mobile_height.replace("px", "") + "px",
-          width: logo_mobile_width.replace("px", "") + "px",
-        }}
-      />
-    ) : logo_text ? (
-      logo_text
-    ) : (
-      title
-    )
-  }
+  <img
+    width={logo_mobile_width}
+    height={logo_mobile_height}
+    src={logo_mobile}
+    alt={title}
+  />
 </a>
