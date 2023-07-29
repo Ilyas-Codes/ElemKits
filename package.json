@@ -9,7 +9,6 @@
     "@astrojs/image": "^0.14.1",
     "@astrojs/mdx": "^0.16.0",
     "astro": "^2.9.2",
-    "esm": "^3.2.25",
     "fuse.js": "^6.6.2",
     "github-slugger": "^2.0.0",
     "marked": "^4.2.12",
