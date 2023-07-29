@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "ElemKits - Free Template Kits to Supercharge Your Elementor Website",
-    "base_url": "https://elemkits.com/",
+    "base_url": "https://elemkits.pages.dev/",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.svg",

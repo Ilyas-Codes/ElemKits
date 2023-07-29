@@ -6,5 +6,5 @@ tags: art, ceramic, decoration, furniture, gifts, handcraft, handmade, interior,
 iframe: https://askproject.net/klay/home/
 image: /images/posts/Pottery and Ceramics Studio.jpeg
 pages: ["Home", "404"]
-download: localhost:3000
+download: https://www.lemonsqueezy.com/
 ---
