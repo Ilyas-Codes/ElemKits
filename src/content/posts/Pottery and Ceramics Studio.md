@@ -7,22 +7,22 @@ iframe: https://askproject.net/klay/home/
 image: /images/posts/Pottery and Ceramics Studio.jpeg
 pages:
   [
-    "Global Theme Style",
+    "Global",
     "Home",
     "About",
     "Classes",
     "Class Detail",
     "Portfolio",
-    "FAQs Page",
+    "FAQs",
     "Pricing",
     "Team",
     "Testimonials",
-    "404 Page",
+    "404",
     "Blog",
     "Single Post",
     "Contact",
-    "Header Offcanvas",
-    "Header",
+    "Header 1",
+    "Header 2",
     "Footer",
   ]
 download: https://www.lemonsqueezy.com/

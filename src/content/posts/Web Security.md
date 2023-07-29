@@ -17,7 +17,7 @@ pages:
     "Service Details",
     "Single Team",
     "Testimonials",
-    "404 Page",
+    "404",
   ]
 download: https://www.lemonsqueezy.com/
 ---
