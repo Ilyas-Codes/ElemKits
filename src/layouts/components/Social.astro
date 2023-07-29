@@ -1,7 +1,8 @@
 ---
 const { source, className } = Astro.props;
 
-import { IoLogoTwitter, IoMail } from "react-icons/io5";
+import pkg from "react-icons/io5/index.esm.js";
+const { IoLogoTwitter, IoMail } = pkg;
 
 const { twitter, email } = source;
 ---
