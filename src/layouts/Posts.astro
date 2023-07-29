@@ -1,0 +1,68 @@
+---
+import { Image } from "@astrojs/image/components";
+import { humanize, slugify } from "@lib/utils/textConverter";
+import { FiDownload, FiArrowUpRight } from "react-icons/fi";
+const { posts } = Astro.props;
+---
+
+<div
+  class="mt-5 grid grid-cols-4 gap-5 p-5 xl:grid-cols-3 lg:grid-cols-2 md:mt-4 md:gap-4 md:p-4 sm:grid-cols-1"
+>
+  {
+    posts.map((post: any, i: number) => (
+      <div class="space-y-[5px]">
+        {post.data.image && (
+          <a href={`/${post.slug}`}>
+            <div class="group relative">
+              <Image
+                class="hover-transition rounded-xl group-hover:brightness-[0.85]"
+                src={post.data.image}
+                alt={post.data.title}
+                width={614}
+                height={430}
+              />
+              <div class="hover-transition absolute right-0 top-0 flex items-center justify-between rounded-xl bg-light-blue opacity-0 shadow-xl shadow-dark-blue/10 group-hover:-translate-x-2 group-hover:translate-y-2 group-hover:opacity-100 dark:bg-dark-blue">
+                <a
+                  class="group/icon hover-transition flex items-center justify-center rounded-xl p-3 hover:bg-main-blue/10"
+                  target="_blank"
+                  href={post.data.iframe}
+                >
+                  <FiArrowUpRight
+                    className="hover-transition group-hover/icon:text-main-blue"
+                    size={20}
+                  />
+                </a>
+                <span class="h-3 border-[1px] border-main-blue" />
+                <a
+                  class="group/icon hover-transition flex items-center justify-center rounded-xl p-3 hover:bg-main-blue/10"
+                  href={post.data.download}
+                >
+                  <FiDownload
+                    className="hover-transition group-hover/icon:text-main-blue"
+                    size={20}
+                  />
+                </a>
+              </div>
+            </div>
+          </a>
+        )}
+        <h3 class="line-clamp-1 font-medium">
+          <a href={`/${post.slug}`}>{post.data.title}</a>
+        </h3>
+        <ul>
+          {post.data.categories.map((category: string, i: number) => (
+            <li>
+              <a
+                class="hover-transition line-clamp-1 w-fit rounded-lg bg-main-blue px-[10px] py-[6px] text-sm font-medium text-light-blue hover:bg-main-blue/90"
+                href={`/categories/${slugify(category)}`}
+              >
+                {humanize(category)}
+                {i !== post.data.categories.length - 1 && ","}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))
+  }
+</div>

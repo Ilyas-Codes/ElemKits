@@ -1,0 +1,188 @@
+---
+import { humanize, markdownify, slugify } from "@lib/utils/textConverter";
+import { FiDownload, FiArrowUpRight } from "react-icons/fi";
+import { GoCheckCircleFill } from "react-icons/go";
+import { CgSpinner } from "react-icons/cg";
+import {
+  PiDesktopFill,
+  PiDeviceTabletSpeakerFill,
+  PiDeviceMobileSpeakerFill,
+} from "react-icons/pi";
+import BackToTop from "./components/BackToTop.astro";
+
+const { post } = Astro.props;
+const { title, description, categories, highlights, pages, iframe, download } =
+  post.data;
+---
+
+<section>
+  <article class="space-y-5 p-5 md:space-y-4 md:p-4">
+    <div
+      class="flex items-end justify-between gap-20 sm:flex-col sm:items-center sm:gap-4"
+    >
+      <div class="w-[500px] space-y-2 sm:w-full">
+        <ul>
+          {
+            categories.map((category: string, i: number) => (
+              <li>
+                <a
+                  class="hover-transition line-clamp-1 w-fit rounded-lg bg-main-blue px-[10px] py-[6px] text-sm font-medium text-light-blue hover:bg-main-blue/90"
+                  href={`/categories/${slugify(category)}`}
+                >
+                  {humanize(category)}
+                  {i !== post.data.categories.length - 1 && ","}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <h1 class="text-xl font-medium" set:html={markdownify(title)} />
+      </div>
+      <a
+        class="lemon-squeezy hover-transition flex w-60 items-center justify-center gap-2 rounded-xl bg-main-blue py-4 font-medium text-light-blue hover:bg-main-blue/90 sm:w-full"
+        href={download}
+      >
+        <FiDownload size={20} />
+        Download Kit</a
+      >
+    </div>
+
+    <div
+      id="demoContainer"
+      class="mx-auto flex h-screen w-full flex-col items-center rounded-xl border-2 border-main-blue bg-white shadow-[-5px_5px_#3CA9EB] dark:bg-accent-blue"
+    >
+      <div
+        id="demoInfo"
+        class="flex w-full items-center justify-between rounded-tl-xl rounded-tr-xl p-4 xs:justify-center"
+      >
+        <p
+          id="loadingDemo"
+          class="flex items-center gap-2 font-medium xs:hidden"
+        >
+          <CgSpinner className="animate-spin text-main-blue" size={20} />
+          Loading the demo...
+        </p>
+        <div id="responsiveDemo" class="hidden items-center gap-2 lg:hidden">
+          <PiDesktopFill
+            id="desktopScreen"
+            className="text-main-blue hover:text-main-blue hover-transition cursor-pointer screen-icon"
+            size={24}
+          />
+          <PiDeviceTabletSpeakerFill
+            id="tabletScreen"
+            className="rotate-180 hover:text-main-blue hover-transition cursor-pointer screen-icon"
+            size={24}
+          />
+          <PiDeviceMobileSpeakerFill
+            id="mobileScreen"
+            className="rotate-180 hover:text-main-blue hover-transition cursor-pointer screen-icon"
+            size={24}
+          />
+        </div>
+        <a
+          class="group flex items-center gap-1 font-medium"
+          target="_blank"
+          href={iframe}
+          >Live Demo
+          <FiArrowUpRight
+            className="hover-transition group-hover:text-main-blue group-hover:-translate-y-1 group-hover:translate-x-1"
+            size={20}
+          />
+        </a>
+      </div>
+      <iframe
+        id="demoDisplay"
+        class="w-full flex-1 rounded-bl-xl rounded-br-xl border-none outline-none"
+        src={iframe}></iframe>
+    </div>
+
+    <div
+      class="flex w-full items-start justify-evenly gap-20 p-5 lg:flex-col lg:gap-5 sm:p-4"
+    >
+      <div class="w-[500px] space-y-2 lg:w-full">
+        <h3 class="text-xl font-medium">Overview</h3>
+        <p class="leading-relaxed">{description}</p>
+      </div>
+      <div class="flex items-start gap-20 lg:gap-16 sm:flex-col sm:gap-5">
+        <div class="space-y-2 sm:order-last">
+          <h3 class="text-xl font-medium">Pages</h3>
+          <ul class="space-y-2">
+            {pages.map((page, i) => <li key={i}>{page}</li>)}
+          </ul>
+        </div>
+        <div class="space-y-2">
+          <h3 class="text-xl font-medium">Highlights</h3>
+          <ul class="space-y-2">
+            {
+              highlights.map((highlight, i) => (
+                <li class="flex items-center gap-2" key={i}>
+                  <GoCheckCircleFill className="text-main-blue" size={20} />
+                  {highlight}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+<BackToTop />
+
+<script>
+  const demo = document.getElementById("demoDisplay");
+  const demoInfo = document.getElementById("demoInfo");
+  const loading = document.getElementById("loadingDemo");
+  const responsiveDemo = document.getElementById("responsiveDemo");
+
+  // iframe loading
+  demo.addEventListener("load", function () {
+    loading.classList.add("hidden");
+    demoInfo.classList.add("lg:justify-center");
+    responsiveDemo.classList.remove("hidden");
+    responsiveDemo.classList.add("flex");
+  });
+
+  // Function to update the width class of demoContainer
+  function updateDemoContainerWidth(widthClass) {
+    const demoContainer = document.getElementById("demoContainer");
+    demoContainer.classList.remove("w-full", "w-[768px]", "w-[400px]");
+    demoContainer.classList.add(widthClass);
+  }
+
+  // Function to update the active screen icon
+  function updateScreenIcons(activeIconId) {
+    const screenIcons = document.querySelectorAll(".screen-icon");
+    screenIcons.forEach((icon) => {
+      if (icon.id === activeIconId) {
+        icon.classList.add("text-main-blue");
+      } else {
+        icon.classList.remove("text-main-blue");
+      }
+    });
+  }
+
+  // Event listener for desktopScreen icon click
+  document
+    .getElementById("desktopScreen")
+    .addEventListener("click", function () {
+      updateDemoContainerWidth("w-full");
+      updateScreenIcons("desktopScreen");
+    });
+
+  // Event listener for tabletScreen icon click (assuming it should reset to w-full)
+  document
+    .getElementById("tabletScreen")
+    .addEventListener("click", function () {
+      updateDemoContainerWidth("w-[768px]");
+      updateScreenIcons("tabletScreen");
+    });
+
+  // Event listener for mobileScreen icon click
+  document
+    .getElementById("mobileScreen")
+    .addEventListener("click", function () {
+      updateDemoContainerWidth("w-[400px]");
+      updateScreenIcons("mobileScreen");
+    });
+</script>

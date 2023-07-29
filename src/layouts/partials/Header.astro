@@ -1,0 +1,238 @@
+---
+import Logo from "@components/Logo.astro";
+import menu from "@config/menu.json";
+import { SlMenu } from "react-icons/sl";
+import { VscChromeClose } from "react-icons/vsc";
+import { IoMdSunny } from "react-icons/io";
+import { PiMoonFill } from "react-icons/pi";
+
+export interface ChildNavigationLink {
+  name: string;
+  url: string;
+}
+
+export interface NavigationLink {
+  name: string;
+  url: string;
+  hasChildren?: boolean;
+  children?: ChildNavigationLink[];
+}
+
+const { main }: { main: NavigationLink[] } = menu;
+---
+
+<header class="p-5 md:p-4">
+  <nav class="flex items-center justify-between">
+    <!-- logo -->
+    <div>
+      <Logo />
+    </div>
+    <!-- menu -->
+    <div class="flex items-center gap-4">
+      <ul class="flex items-center font-medium md:hidden">
+        {
+          main.map((menu) => (
+            <>
+              {menu.hasChildren ? (
+                <li>
+                  <span>
+                    {menu.name}
+                    <svg viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                    </svg>
+                  </span>
+                  <ul>
+                    {menu.children?.map((child) => (
+                      <li>
+                        <a href={child.url}>{child.name}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ) : (
+                <li>
+                  <a
+                    class="hover-transition rounded-xl px-4 py-3 hover:bg-main-blue/10 hover:text-main-blue"
+                    href={menu.url}
+                  >
+                    {menu.name}
+                  </a>
+                </li>
+              )}
+            </>
+          ))
+        }
+      </ul>
+      <div class="flex items-center gap-4">
+        <div
+          id="light-mode"
+          class="hover-transition hidden cursor-pointer text-main-blue hover:-rotate-90"
+        >
+          <IoMdSunny size={20} />
+        </div>
+        <div
+          id="dark-mode"
+          class="hover-transition cursor-pointer text-main-blue hover:-rotate-90"
+        >
+          <PiMoonFill size={20} />
+        </div>
+        <div
+          id="menu-icon"
+          class="hover-transition hidden cursor-pointer hover:text-main-blue md:block"
+        >
+          <SlMenu size={20} />
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<nav
+  id="mobile-menu"
+  class="fixed inset-4 z-10 mx-auto hidden h-fit select-none items-start justify-between rounded-xl border-2 border-main-blue bg-white p-5 shadow-[-5px_5px_#3CA9EB] dark:bg-accent-blue"
+>
+  <ul class="flex flex-col items-center gap-4 font-medium" id="nav-menu">
+    {
+      main.map((menu) => (
+        <>
+          {menu.hasChildren ? (
+            <li>
+              <span>
+                {menu.name}
+                <svg viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </span>
+              <ul>
+                {menu.children?.map((child) => (
+                  <li>
+                    <a href={child.url}>{child.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ) : (
+            <li>
+              <a class="hover-transition hover:text-main-blue" href={menu.url}>
+                {menu.name}
+              </a>
+            </li>
+          )}
+        </>
+      ))
+    }
+  </ul>
+  <div
+    id="close-icon"
+    class="hover-transition cursor-pointer hover:text-main-blue"
+  >
+    <VscChromeClose size={20} />
+  </div>
+</nav>
+
+<script>
+  const darkModeIcon = document.getElementById("dark-mode");
+  const lightModeIcon = document.getElementById("light-mode");
+  const menuIcon = document.getElementById("menu-icon");
+  const closeIcon = document.getElementById("close-icon");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const html = document.documentElement;
+
+  // toggle mobile menu
+  menuIcon.addEventListener("click", function () {
+    toggleMobileMenu();
+  });
+
+  closeIcon.addEventListener("click", function () {
+    toggleMobileMenu();
+  });
+
+  function toggleMobileMenu() {
+    if (mobileMenu.classList.contains("hidden")) {
+      openMobileMenu();
+    } else {
+      closeMobileMenu();
+    }
+  }
+
+  function openMobileMenu() {
+    mobileMenu.style.opacity = "0";
+    mobileMenu.classList.remove("hidden");
+    mobileMenu.classList.add("flex");
+
+    setTimeout(() => {
+      mobileMenu.style.opacity = "1";
+    }, 10);
+  }
+
+  function closeMobileMenu() {
+    mobileMenu.style.opacity = "0";
+
+    setTimeout(() => {
+      mobileMenu.classList.remove("flex");
+      mobileMenu.classList.add("hidden");
+    }, 300);
+  }
+
+  // close mobile menu when clicking outside
+  document.addEventListener("click", function (event) {
+    const isClickInsideMenu = mobileMenu.contains(event.target);
+    const isClickOnMenuIcon = menuIcon.contains(event.target);
+
+    if (!isClickInsideMenu && !isClickOnMenuIcon) {
+      closeMobileMenu();
+    }
+  });
+
+  // Check if the dark mode preference is saved in localStorage
+  const savedMode = localStorage.getItem("mode");
+  let currentMode;
+
+  // Determine the initial mode based on localStorage or system preference
+  if (savedMode !== null) {
+    currentMode = savedMode;
+  } else if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+  ) {
+    currentMode = "dark";
+  } else {
+    currentMode = "light";
+  }
+
+  // Apply the current mode on page load
+  applyMode(currentMode);
+
+  darkModeIcon.addEventListener("click", toggleMode);
+  lightModeIcon.addEventListener("click", toggleMode);
+
+  // Listen for changes in system preference and apply the mode accordingly
+  window.matchMedia("(prefers-color-scheme: dark)").addListener((e) => {
+    const newMode = e.matches ? "dark" : "light";
+    applyMode(newMode);
+    saveMode(newMode);
+  });
+
+  function toggleMode() {
+    const newMode = currentMode === "light" ? "dark" : "light";
+    applyMode(newMode);
+    saveMode(newMode);
+  }
+
+  function applyMode(mode) {
+    html.classList.remove("dark", "light");
+    html.classList.add(mode);
+    if (mode === "dark") {
+      darkModeIcon.classList.add("hidden");
+      lightModeIcon.classList.remove("hidden");
+    } else {
+      darkModeIcon.classList.remove("hidden");
+      lightModeIcon.classList.add("hidden");
+    }
+    currentMode = mode;
+  }
+
+  function saveMode(mode) {
+    localStorage.setItem("mode", mode);
+  }
+</script>

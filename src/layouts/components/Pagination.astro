@@ -1,0 +1,100 @@
+---
+import { RxArrowLeft, RxArrowRight } from "react-icons/rx";
+const { section, currentPage, totalPages } = Astro.props;
+
+const indexPageLink = currentPage === 2;
+const hasPrevPage = currentPage > 1;
+const hasNextPage = totalPages > currentPage;
+
+// Calculate the starting and ending index for the displayed pages
+let startPage = Math.max(1, currentPage - 2);
+let endPage = Math.min(totalPages, currentPage + 2);
+
+if (endPage - startPage < 4) {
+  if (startPage === 1) {
+    endPage = Math.min(totalPages, startPage + 4);
+  } else if (endPage === totalPages) {
+    startPage = Math.max(1, endPage - 4);
+  }
+}
+
+let pageList = [];
+for (let i = startPage; i <= endPage; i++) {
+  pageList.push(i);
+}
+---
+
+{
+  totalPages > 1 && (
+    <nav
+      class="mx-auto mb-5 flex w-fit items-center justify-center gap-2 p-5 text-center md:mx-0 md:mb-4 md:w-full md:p-4 2xs:flex-col"
+      aria-label="Pagination"
+    >
+      {/* previous */}
+      {hasPrevPage ? (
+        <a
+          href={
+            indexPageLink
+              ? `${section ? "/" + section : "/"}`
+              : `${section ? "/" + section : ""}/page/${currentPage - 1}`
+          }
+          class="hover-transition group flex items-center justify-center gap-3 rounded-xl bg-main-blue px-6 py-3 font-medium text-light-blue hover:bg-main-blue/90 sm:w-full sm:px-0"
+        >
+          <span class="sr-only">Previous</span>
+          <RxArrowLeft
+            className="hover-transition group-hover:-translate-x-1"
+            size={20}
+          />
+          Previous
+        </a>
+      ) : (
+        <span class="hidden">
+          <span class="sr-only">Previous</span>
+        </span>
+      )}
+
+      {/* page index */}
+      {pageList.map((pagination) =>
+        pagination === currentPage ? (
+          <span
+            aria-current="page"
+            class={`rounded-xl bg-main-blue px-6 py-3 font-medium text-light-blue sm:hidden`}
+          >
+            {pagination}
+          </span>
+        ) : (
+          <a
+            href={
+              pagination === 1
+                ? `${section ? "/" + section : "/"}`
+                : `${section ? "/" + section : ""}/page/${pagination}`
+            }
+            aria-current="page"
+            class={`hover-transition flex items-center justify-center rounded-xl bg-main-blue/10 px-6 py-3 font-medium hover:bg-main-blue/20 sm:hidden`}
+          >
+            {pagination}
+          </a>
+        )
+      )}
+
+      {/* next page */}
+      {hasNextPage ? (
+        <a
+          href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
+          class="hover-transition group flex items-center justify-center gap-3 rounded-xl bg-main-blue px-6 py-3 font-medium text-light-blue hover:bg-main-blue/90 sm:w-full sm:px-0"
+        >
+          <span class="sr-only">Next</span>
+          Next
+          <RxArrowRight
+            className="hover-transition group-hover:translate-x-1"
+            size={20}
+          />
+        </a>
+      ) : (
+        <span class="hidden">
+          <span class="sr-only">Next</span>
+        </span>
+      )}
+    </nav>
+  )
+}

@@ -1,0 +1,38 @@
+---
+const { source, className } = Astro.props;
+
+import { IoLogoTwitter, IoMail } from "react-icons/io5";
+
+const { twitter, email } = source;
+---
+
+<ul class={className}>
+  {
+    twitter && (
+      <li>
+        <a
+          class="hover-transition hover:text-main-blue"
+          aria-label="twitter"
+          href={twitter}
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+        >
+          <IoLogoTwitter size={20} />
+        </a>
+      </li>
+    )
+  }
+  {
+    email && (
+      <li>
+        <a
+          class="hover-transition hover:text-main-blue"
+          aria-label="email"
+          href={`mailto:${email}`}
+        >
+          <IoMail size={20} />
+        </a>
+      </li>
+    )
+  }
+</ul>

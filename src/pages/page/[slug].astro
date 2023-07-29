@@ -1,0 +1,81 @@
+---
+import config from "@config/config.json";
+import Base from "@layouts/Base.astro";
+import Pagination from "@layouts/components/Pagination.astro";
+import Posts from "@layouts/Posts.astro";
+import { getSinglePage } from "@lib/contentParser.astro";
+import { sortByDate } from "@lib/utils/sortFunctions";
+import { HiOutlineSearch } from "react-icons/hi";
+import { BiSolidCategory } from "react-icons/bi";
+import BackToTop from "@layouts/components/BackToTop.astro";
+
+export async function getStaticPaths() {
+  const posts = await getSinglePage("posts");
+  const totalPages = Math.ceil(posts.length / config.settings.pagination);
+  const paths = [];
+
+  for (let i = 1; i < totalPages; i++) {
+    paths.push({
+      params: {
+        slug: (i + 1).toString(),
+      },
+    });
+  }
+  return paths;
+}
+
+const { slug } = Astro.params;
+const posts = await getSinglePage("posts");
+const sortedPosts = sortByDate(posts);
+const totalPages = Math.ceil(posts.length / config.settings.pagination);
+const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
+const indexOfLastPost = currentPage * config.settings.pagination;
+const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
+const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+---
+
+<Base>
+  <section
+    class="relative w-full space-y-5 p-5 text-center md:mx-0 md:space-y-4 md:p-4"
+  >
+    <h1 class="mx-auto w-[650px] text-40px font-medium md:mx-0 md:w-full">
+      Quickly build <span class="text-main-blue">entire</span> Elementor websites
+      for <span class="text-main-blue">every niche.</span>
+    </h1>
+    <div class="flex items-center justify-center gap-4 450:flex-col 450:gap-3">
+      <a
+        class="hover-transition flex w-fit items-center justify-center gap-2 rounded-xl bg-main-blue p-4 font-medium text-light-blue hover:bg-main-blue/90 450:w-full 450:p-0 450:py-4"
+        href="/search"
+      >
+        <HiOutlineSearch size={20} />
+        Search all kits</a
+      >
+      <a
+        class="hover-transition flex w-fit items-center justify-center gap-2 rounded-xl bg-main-blue p-4 font-medium text-light-blue hover:bg-main-blue/90 450:w-full 450:p-0 450:py-4"
+        href="/categories"
+      >
+        <BiSolidCategory size={20} />
+        Search by category</a
+      >
+    </div>
+    <div class="absolute bottom-0 left-10 lg:hidden">
+      <img
+        class="w-[100px] dark:hidden"
+        src="/images/new-kits-added-daily.svg"
+        alt="new-kits-added-daily"
+      />
+      <img
+        class="hidden w-[100px] dark:block"
+        src="/images/new-kits-added-daily-dark.svg"
+        alt="new-kits-added-daily-dark"
+      />
+    </div>
+  </section>
+  <section>
+    <div>
+      <Posts posts={currentPosts} />
+      <Pagination totalPages={totalPages} currentPage={currentPage} />
+    </div>
+  </section>
+  <BackToTop />
+</Base>

@@ -1,0 +1,30 @@
+---
+import Social from "@components/Social.astro";
+import config from "@config/config.json";
+import menu from "@config/menu.json";
+import social from "@config/social.json";
+import { markdownify } from "@lib/utils/textConverter";
+---
+
+<footer class="bg-main-blue/10 p-4">
+  <div
+    class="flex items-center justify-between text-center text-sm sm:flex-col sm:gap-4"
+  >
+    {/* footer menu */}
+    <ul class="flex items-center gap-4">
+      {
+        menu.footer.map((menu) => (
+          <li>
+            <a class="hover-transition hover:text-main-blue" href={menu.url}>
+              {menu.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    {/* social icons */}
+    <Social className="flex items-center order-last gap-4 " source={social} />
+    {/* copyright */}
+    <p class="order-first" set:html={markdownify(config.params.copyright)} />
+  </div>
+</footer>

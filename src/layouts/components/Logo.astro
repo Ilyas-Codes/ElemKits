@@ -1,0 +1,87 @@
+---
+import { Image } from "@astrojs/image/components";
+import config from "@config/config.json";
+const { src } = Astro.props;
+const {
+  logo,
+  logo_dark,
+  logo_mobile,
+  logo_width,
+  logo_height,
+  logo_mobile_width,
+  logo_mobile_height,
+  logo_text,
+  title,
+}: {
+  logo: string;
+  logo_dark: string;
+  logo_mobile: string;
+  logo_width: any;
+  logo_height: any;
+  logo_mobile_width: any;
+  logo_mobile_height: any;
+  logo_text: string;
+  title: string;
+} = config.site;
+---
+
+<a class="dark:hidden 2xs:hidden" href="/">
+  {
+    src || logo ? (
+      <Image
+        width={logo_width.replace("px", "") * 2}
+        height={logo_height.replace("px", "") * 2}
+        src={src ? src : logo}
+        alt={title}
+        style={{
+          height: logo_height.replace("px", "") + "px",
+          width: logo_width.replace("px", "") + "px",
+        }}
+      />
+    ) : logo_text ? (
+      logo_text
+    ) : (
+      title
+    )
+  }
+</a>
+<a class="hidden dark:block dark:2xs:hidden" href="/">
+  {
+    src || logo ? (
+      <Image
+        width={logo_width.replace("px", "") * 2}
+        height={logo_height.replace("px", "") * 2}
+        src={src ? src : logo_dark}
+        alt={title}
+        style={{
+          height: logo_height.replace("px", "") + "px",
+          width: logo_width.replace("px", "") + "px",
+        }}
+      />
+    ) : logo_text ? (
+      logo_text
+    ) : (
+      title
+    )
+  }
+</a>
+<a class="hidden 2xs:block" href="/">
+  {
+    src || logo ? (
+      <Image
+        width={logo_mobile_width.replace("px", "") * 2}
+        height={logo_mobile_height.replace("px", "") * 2}
+        src={src ? src : logo_mobile}
+        alt={title}
+        style={{
+          height: logo_mobile_height.replace("px", "") + "px",
+          width: logo_mobile_width.replace("px", "") + "px",
+        }}
+      />
+    ) : logo_text ? (
+      logo_text
+    ) : (
+      title
+    )
+  }
+</a>

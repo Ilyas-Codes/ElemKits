@@ -1,0 +1,74 @@
+---
+import Base from "@layouts/Base.astro";
+import { GoCheckCircleFill } from "react-icons/go";
+---
+
+<Base
+  title="Pricing"
+  meta_title="Pricing"
+  description="Consistent pricing across all kits."
+  image="/images/og-image.jpg"
+>
+  <main
+    class="mx-auto mb-12 w-[1000px] space-y-12 p-5 lg:mx-0 lg:w-full md:p-4"
+  >
+    <section class="w-full space-y-2 text-center">
+      <h1 class="text-30px font-medium">Consistent pricing across all kits.</h1>
+      <p class="mx-auto w-[700px] leading-relaxed md:mx-0 md:w-full">
+        Enjoy the convenience of consistent & transparent pricing, allowing you
+        to explore a vast collection of Elementor template kits without worrying
+        about the fluctuating costs.
+      </p>
+    </section>
+    <section
+      class="flex w-full items-start justify-between gap-5 md:flex-col md:gap-4"
+    >
+      <div
+        class="hover-transition flex w-full cursor-pointer flex-col items-center gap-[rfs(32px)] rounded-xl border-2 border-main-blue bg-white p-[rfs(32px)] text-center hover:-translate-y-1 hover:translate-x-1 hover:shadow-[-5px_5px_#3CA9EB] dark:bg-accent-blue"
+      >
+        <h6 class="text-sm font-semibold leading-none tracking-[3px]">FREE</h6>
+        <h2 class="text-50px font-medium leading-none text-main-blue">$0</h2>
+        <p class="leading-relaxed">
+          No credit card needed - simply download your kits, and get to work.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2 font-medium">
+            <GoCheckCircleFill className="text-main-blue" size={20} />
+            6 Pages included
+          </li>
+          <li class="flex items-center gap-2 font-medium">
+            <GoCheckCircleFill className="text-main-blue" size={20} />
+            Flexible <a class="text-main-blue" href="/license">license</a>
+          </li>
+          <li class="flex items-center gap-2 font-medium">
+            <GoCheckCircleFill className="text-main-blue" size={20} />
+            Email support
+          </li>
+        </ul>
+      </div>
+      <div
+        class="hover-transition flex w-full cursor-pointer flex-col items-center gap-[rfs(32px)] rounded-xl border-2 border-main-blue bg-white p-[rfs(32px)] text-center hover:-translate-y-1 hover:translate-x-1 hover:shadow-[-5px_5px_#3CA9EB] dark:bg-accent-blue"
+      >
+        <h6 class="text-sm font-semibold leading-none tracking-[3px]">PRO</h6>
+        <h2 class="text-50px font-medium leading-none text-main-blue">$9</h2>
+        <p class="leading-relaxed">
+          For just $9, get the full website kits, including all pages.
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-center gap-2 font-medium">
+            <GoCheckCircleFill className="text-main-blue" size={20} />
+            All pages included
+          </li>
+          <li class="flex items-center gap-2 font-medium">
+            <GoCheckCircleFill className="text-main-blue" size={20} />
+            Flexible <a class="text-main-blue" href="/license">license</a>
+          </li>
+          <li class="flex items-center gap-2 font-medium">
+            <GoCheckCircleFill className="text-main-blue" size={20} />
+            Email support
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</Base>

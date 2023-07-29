@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body::-webkit-scrollbar {
+  background-color: transparent;
+  width: 7px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #3ca9eb;
+  border-radius: 20px;
+}
+
+::selection {
+  color: #eaf6fe;
+  background-color: #3ca9eb;
+}
+
+/* base styles */
+.base-styles {
+  @apply mx-auto flex min-h-screen max-w-[1920px] flex-col justify-between bg-light-blue font-inter text-dark-blue antialiased dark:bg-dark-blue dark:text-light-blue;
+}
+
+/* open & close mobile menu animation */
+#mobile-menu {
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
+}
+
+#mobile-menu.flex {
+  opacity: 1;
+}
+
+.hover-transition {
+  @apply transition duration-200 ease-out;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-left: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url("/images/close-icon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dark input[type="search"]::-webkit-search-cancel-button,
+.dark input[type="search"]::-webkit-search-decoration {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-left: 16px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-image: url("/images/close-icon-light.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* back to top animation */
+.back-to-top {
+  animation: back-to-top 0.2s ease-out forwards;
+}
+
+@keyframes back-to-top {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(-16px) translateX(-16px);
+  }
+}

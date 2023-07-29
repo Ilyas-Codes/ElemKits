@@ -1,0 +1,26 @@
+{
+  "main": [
+    {
+      "name": "Pricing",
+      "url": "/pricing"
+    },
+    {
+      "name": "License",
+      "url": "/license"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Terms of Use",
+      "url": "/terms"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy"
+    }
+  ]
+}
