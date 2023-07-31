@@ -100,7 +100,8 @@ export default function SearchBar({ searchList }: Props) {
                     height={430}
                   />
                   <div className="hover-transition absolute right-0 top-0 flex items-center justify-between rounded-xl bg-light-blue opacity-0 shadow-xl shadow-dark-blue/10 group-hover:-translate-x-2 group-hover:translate-y-2 group-hover:opacity-100 dark:bg-dark-blue">
-                    <a aria-label="live demo"
+                    <a
+                      aria-label="live demo"
                       className="group/icon hover-transition flex items-center justify-center rounded-xl p-3 hover:bg-main-blue/10"
                       target="_blank"
                       href={item.data.iframe}
@@ -111,7 +112,8 @@ export default function SearchBar({ searchList }: Props) {
                       />
                     </a>
                     <span className="h-3 border-[1px] border-main-blue" />
-                    <a aria-label="download"
+                    <a
+                      aria-label="download"
                       className="group/icon hover-transition flex items-center justify-center rounded-xl p-3 hover:bg-main-blue/10"
                       href={item.data.download}
                     >
@@ -124,13 +126,16 @@ export default function SearchBar({ searchList }: Props) {
                 </div>
               </a>
             )}
-            <h3 className="line-clamp-1 font-medium">
-              <a aria-label={item.data.title} href={`/${item.slug}`}>{item.data.title}</a>
-            </h3>
+            <h2 className="line-clamp-1 font-medium">
+              <a aria-label={item.data.title} href={`/${item.slug}`}>
+                {item.data.title}
+              </a>
+            </h2>
             <ul>
               {item.data.categories.map((category: string, i: number) => (
                 <li>
-                  <a aria-label={item.data.categories}
+                  <a
+                    aria-label={item.data.categories}
                     className="hover-transition line-clamp-1 w-fit rounded-lg bg-main-blue px-[10px] py-[6px] text-sm font-medium text-light-blue hover:bg-main-blue/90"
                     href={`/categories/${slugify(category)}`}
                   >
