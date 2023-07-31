@@ -32,7 +32,7 @@ for (let i = startPage; i <= endPage; i++) {
     >
       {/* previous */}
       {hasPrevPage ? (
-        <a
+        <a aria-label="Previous"
           href={
             indexPageLink
               ? `${section ? "/" + section : "/"}`
@@ -63,7 +63,7 @@ for (let i = startPage; i <= endPage; i++) {
             {pagination}
           </span>
         ) : (
-          <a
+          <a aria-label="pagination"
             href={
               pagination === 1
                 ? `${section ? "/" + section : "/"}`
@@ -79,7 +79,7 @@ for (let i = startPage; i <= endPage; i++) {
 
       {/* next page */}
       {hasNextPage ? (
-        <a
+        <a aria-label="Next"
           href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
           class="hover-transition group flex items-center justify-center gap-3 rounded-xl bg-main-blue px-6 py-3 font-medium text-light-blue hover:bg-main-blue/90 sm:w-full sm:px-0"
         >

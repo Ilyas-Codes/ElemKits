@@ -15,7 +15,7 @@ const categories = await getTaxonomy("posts", "categories");
       <ul class="flex flex-wrap items-center justify-center gap-5 md:gap-4">
         {
           categories.map((category) => (
-            <a
+            <a aria-label={category}
               class="hover-transition rounded-xl border-2 border-transparent bg-main-blue/10 px-4 py-3 font-medium hover:-translate-y-1 hover:translate-x-1 hover:border-main-blue hover:text-main-blue hover:shadow-[-5px_5px_#3CA9EB]"
               href={`/categories/${category}`}
             >

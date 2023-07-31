@@ -8,7 +8,7 @@ const { twitter, email } = source;
   {
     twitter && (
       <li>
-        <a
+        <a aria-label="twitter"
           class="hover-transition hover:text-main-blue"
           aria-label="twitter"
           href={twitter}
@@ -23,7 +23,7 @@ const { twitter, email } = source;
   {
     email && (
       <li>
-        <a
+        <a aria-label="email"
           class="hover-transition hover:text-main-blue"
           aria-label="email"
           href={`mailto:${email}`}

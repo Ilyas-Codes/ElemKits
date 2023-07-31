@@ -44,14 +44,14 @@ const { main }: { main: NavigationLink[] } = menu;
                   <ul>
                     {menu.children?.map((child) => (
                       <li>
-                        <a href={child.url}>{child.name}</a>
+                        <a aria-label={child.name} href={child.url}>{child.name}</a>
                       </li>
                     ))}
                   </ul>
                 </li>
               ) : (
                 <li>
-                  <a
+                  <a aria-label={menu.name}
                     class="hover-transition rounded-xl px-4 py-3 hover:bg-main-blue/10 hover:text-main-blue"
                     href={menu.url}
                   >
@@ -100,14 +100,14 @@ const { main }: { main: NavigationLink[] } = menu;
               <ul>
                 {menu.children?.map((child) => (
                   <li>
-                    <a href={child.url}>{child.name}</a>
+                    <a aria-label={child.name} href={child.url}>{child.name}</a>
                   </li>
                 ))}
               </ul>
             </li>
           ) : (
             <li>
-              <a class="hover-transition hover:text-main-blue" href={menu.url}>
+              <a aria-label={menu.name} class="hover-transition hover:text-main-blue" href={menu.url}>
                 {menu.name}
               </a>
             </li>

@@ -24,7 +24,7 @@ const { title, description, categories, highlights, pages, iframe, download } =
           {
             categories.map((category: string, i: number) => (
               <li>
-                <a
+                <a aria-label={post.data.categories}
                   class="hover-transition line-clamp-1 w-fit rounded-lg bg-main-blue px-[10px] py-[6px] text-sm font-medium text-light-blue hover:bg-main-blue/90"
                   href={`/categories/${slugify(category)}`}
                 >
@@ -37,7 +37,7 @@ const { title, description, categories, highlights, pages, iframe, download } =
         </ul>
         <h1 class="text-xl font-medium" set:html={markdownify(title)} />
       </div>
-      <a
+      <a aria-label="download"
         class="lemon-squeezy hover-transition flex w-60 items-center justify-center gap-2 rounded-xl bg-main-blue py-4 font-medium text-light-blue hover:bg-main-blue/90 sm:w-full"
         href={download}
       >
@@ -78,7 +78,7 @@ const { title, description, categories, highlights, pages, iframe, download } =
             size={24}
           />
         </div>
-        <a
+        <a aria-label="live demo"
           class="group flex items-center gap-1 font-medium"
           target="_blank"
           href={iframe}

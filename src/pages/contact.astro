@@ -23,7 +23,7 @@ const { email } = social;
           a few hours.
         </p>
       </div>
-      <a
+      <a aria-label="Back to home"
         class="hover-transition mx-auto flex w-36 items-center justify-center rounded-xl bg-main-blue py-3 font-medium text-light-blue hover:bg-main-blue/90"
         href="/">Back to home</a
       >
@@ -38,12 +38,12 @@ const { email } = social;
         <p class="leading-relaxed">
           there was an error sending your message. Please check your internet
           connection and try again. If the problem persists, please reach out
-          directly to this <a class="text-main-blue" href={`mailto:${email}`}
+          directly to this <a aria-label={email} class="text-main-blue" href={`mailto:${email}`}
             >address</a
           >
         </p>
       </div>
-      <a
+      <a aria-label="Try again"
         class="hover-transition mx-auto flex w-36 items-center justify-center rounded-xl bg-main-blue py-3 font-medium text-light-blue hover:bg-main-blue/90"
         href="/contact">Try again</a
       >

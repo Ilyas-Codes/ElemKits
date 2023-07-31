@@ -15,7 +15,7 @@ import { markdownify } from "@lib/utils/textConverter";
       {
         menu.footer.map((menu) => (
           <li>
-            <a class="hover-transition hover:text-main-blue" href={menu.url}>
+            <a aria-label="footer menu" class="hover-transition hover:text-main-blue" href={menu.url}>
               {menu.name}
             </a>
           </li>
