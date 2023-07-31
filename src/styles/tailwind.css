@@ -79,3 +79,19 @@ input[type="search"]::-webkit-search-decoration {
     transform: translateY(-16px) translateX(-16px);
   }
 }
+
+/* dark/light mode animation */
+.dark-mode-switch {
+  animation: dark-mode-switch 0.2s ease-out both;
+}
+
+@keyframes dark-mode-switch {
+  0% {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

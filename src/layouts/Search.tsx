@@ -93,7 +93,7 @@ export default function SearchBar({ searchList }: Props) {
               <a href={`/${item.slug}`}>
                 <div className="group relative">
                   <img
-                    className="hover-transition rounded-xl group-hover:brightness-[0.85]"
+                    className="hover-transition rounded-xl object-cover object-center group-hover:brightness-[0.85]"
                     src={item.data.image}
                     alt={item.data.title}
                     width={614}

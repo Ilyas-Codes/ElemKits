@@ -64,16 +64,10 @@ const { main }: { main: NavigationLink[] } = menu;
         }
       </ul>
       <div class="flex items-center gap-4">
-        <div
-          id="light-mode"
-          class="hover-transition hidden cursor-pointer text-main-blue hover:-rotate-90"
-        >
+        <div id="light-mode" class="hidden cursor-pointer text-main-blue">
           <IoMdSunny size={20} />
         </div>
-        <div
-          id="dark-mode"
-          class="hover-transition cursor-pointer text-main-blue hover:-rotate-90"
-        >
+        <div id="dark-mode" class="hidden cursor-pointer text-main-blue">
           <PiMoonFill size={20} />
         </div>
         <div
@@ -215,6 +209,8 @@ const { main }: { main: NavigationLink[] } = menu;
 
   function toggleMode() {
     const newMode = currentMode === "light" ? "dark" : "light";
+    darkModeIcon.classList.add("dark-mode-switch");
+    lightModeIcon.classList.add("dark-mode-switch");
     applyMode(newMode);
     saveMode(newMode);
   }

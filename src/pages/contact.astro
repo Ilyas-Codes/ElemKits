@@ -136,8 +136,28 @@ const { email } = social;
   fileInput.addEventListener("change", () => {
     if (fileInput.files.length > 0) {
       fileUpload.textContent = fileInput.files[0].name;
+      fileUpload.classList.add(
+        "bg-main-blue",
+        "hover:bg-main-blue/90",
+        "text-light-blue"
+      );
+      fileUpload.classList.remove(
+        "bg-red-400/10",
+        "hover:bg-red-400/20",
+        "text-red-400"
+      );
     } else {
       fileUpload.textContent = "File cancelled";
+      fileUpload.classList.remove(
+        "bg-main-blue",
+        "hover:bg-main-blue/90",
+        "text-light-blue"
+      );
+      fileUpload.classList.add(
+        "bg-red-400/10",
+        "hover:bg-red-400/20",
+        "text-red-400"
+      );
     }
   });
 
