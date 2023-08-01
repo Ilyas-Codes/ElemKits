@@ -1,0 +1,25 @@
+backend:
+  name: github
+  repo: Ilyas-Codes/ElemKits
+  branch: main
+  base_url: https://elemkits.pages.dev/
+  auth_endpoint: /api/auth
+media_folder: /images/posts
+public_folder: /_astro
+collections:
+  - name: "kit"
+    label: "Kit"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "title", name: "title", widget: "string" }
+      - { label: "description", name: "description", widget: "string" }
+      - { label: "categories", name: "categories", widget: "list" }
+      - { label: "tags", name: "tags", widget: "string" }
+      - { label: "iframe", name: "iframe", widget: "string" }
+      - { label: "image", name: "image", widget: "image" }
+      - { label: "pages", name: "pages", widget: "list" }
+      - { label: "download", name: "download", widget: "string" }

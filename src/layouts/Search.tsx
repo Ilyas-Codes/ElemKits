@@ -65,7 +65,7 @@ export default function SearchBar({ searchList }: Props) {
   return (
     <div className="flex flex-col items-center p-5 md:p-4">
       <input
-        className="w-[700px] rounded-xl border-2 border-main-blue p-5 shadow-[-5px_5px_#3CA9EB] placeholder:text-dark-blue/50 focus:outline-none dark:bg-accent-blue dark:placeholder:text-light-blue/50 md:w-full"
+        className="w-[700px] rounded-xl border-2 border-main-blue p-4 shadow-[-5px_5px_#3CA9EB] placeholder:text-dark-blue/50 focus:outline-none dark:bg-accent-blue dark:placeholder:text-light-blue/50 md:w-full"
         placeholder="dark photography portfolio"
         type="search"
         name="search"
