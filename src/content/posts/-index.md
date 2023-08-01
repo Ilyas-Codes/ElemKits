@@ -1,10 +1,10 @@
 ---
 title: title
 description: description
-categories: ["category"]
+categories: ["categories"]
 tags: tags
 iframe: iframe
-image: /images/posts/title.jpeg
-pages: ["Home"]
+image: image
+pages: ["pages"]
 download: download
 ---
