@@ -22,16 +22,6 @@ body::-webkit-scrollbar-thumb {
   @apply mx-auto flex min-h-screen max-w-[1920px] flex-col justify-between bg-light-blue font-inter text-dark-blue antialiased dark:bg-dark-blue dark:text-light-blue;
 }
 
-/* open & close mobile menu animation */
-#mobile-menu {
-  opacity: 0;
-  transition: opacity 0.2s ease-out;
-}
-
-#mobile-menu.flex {
-  opacity: 1;
-}
-
 .hover-transition {
   @apply transition duration-200 ease-out;
 }
@@ -64,6 +54,38 @@ input[type="search"]::-webkit-search-decoration {
   background-image: url("/images/close-icon-light.svg");
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* mobile menu open animation */
+.mobile-menu-open {
+  animation: mobile-menu-open 0.2s ease-out both;
+}
+
+@keyframes mobile-menu-open {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(16px);
+    opacity: 1;
+  }
+}
+
+/* mobile menu close animation */
+.mobile-menu-close {
+  animation: mobile-menu-close 0.2s ease-out both;
+}
+
+@keyframes mobile-menu-close {
+  0% {
+    transform: translateY(16px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
 }
 
 /* back to top animation */
