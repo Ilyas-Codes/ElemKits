@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://elemkits.pages.dev/
   auth_endpoint: /api/auth
+publish_mode: editorial_workflow
 media_folder: /images/posts
 public_folder: /_astro
 collections:
