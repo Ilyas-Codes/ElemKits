@@ -7,7 +7,7 @@ backend:
 media_folder: /images/posts
 public_folder: /_astro
 collections:
-  - name: "Elementor Template Kits"
+  - name: "kit"
     label: "Kit"
     folder: "src/content/posts"
     create: true
