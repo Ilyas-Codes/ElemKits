@@ -114,7 +114,7 @@ export default function SearchBar({ searchList }: Props) {
                     <span className="h-3 border-[1px] border-main-blue" />
                     <a
                       aria-label="download"
-                      className="group/icon hover-transition flex items-center justify-center rounded-xl p-3 hover:bg-main-blue/10"
+                      className="lemonsqueezy-button group/icon hover-transition flex items-center justify-center rounded-xl p-3 hover:bg-main-blue/10"
                       href={item.data.download}
                     >
                       <FiDownload
