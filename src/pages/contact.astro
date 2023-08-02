@@ -23,7 +23,8 @@ const { email } = social;
           a few hours.
         </p>
       </div>
-      <a aria-label="Back to home"
+      <a
+        aria-label="Back to home"
         class="hover-transition mx-auto flex w-36 items-center justify-center rounded-xl bg-main-blue py-3 font-medium text-light-blue hover:bg-main-blue/90"
         href="/">Back to home</a
       >
@@ -38,12 +39,15 @@ const { email } = social;
         <p class="leading-relaxed">
           there was an error sending your message. Please check your internet
           connection and try again. If the problem persists, please reach out
-          directly to this <a aria-label={email} class="text-main-blue" href={`mailto:${email}`}
-            >address</a
+          directly to this <a
+            aria-label={email}
+            class="text-main-blue"
+            href={`mailto:${email}`}>address</a
           >
         </p>
       </div>
-      <a aria-label="Try again"
+      <a
+        aria-label="Try again"
         class="hover-transition mx-auto flex w-36 items-center justify-center rounded-xl bg-main-blue py-3 font-medium text-light-blue hover:bg-main-blue/90"
         href="/contact">Try again</a
       >
@@ -70,7 +74,9 @@ const { email } = social;
     >
       <input type="hidden" name="_captcha" value="false" />
       <div class="flex flex-col gap-2">
-        <label class="font-medium" for="name">Name</label>
+        <label class="font-medium" for="name"
+          >Name <span class="text-red-400">*</span></label
+        >
         <input
           class="hover-transition rounded-xl border-2 border-main-blue/20 p-4 placeholder:text-dark-blue/50 hover:border-main-blue/40 focus:border-main-blue focus:outline-none dark:bg-accent-blue dark:placeholder:text-light-blue/50"
           placeholder="Cool Name"
@@ -81,7 +87,9 @@ const { email } = social;
         />
       </div>
       <div class="flex flex-col gap-2">
-        <label class="font-medium" for="email">Email</label>
+        <label class="font-medium" for="email"
+          >Email <span class="text-red-400">*</span></label
+        >
         <input
           class="hover-transition rounded-xl border-2 border-main-blue/20 p-4 placeholder:text-dark-blue/50 hover:border-main-blue/40 focus:border-main-blue focus:outline-none dark:bg-accent-blue dark:placeholder:text-light-blue/50"
           placeholder="you@cool.com"
@@ -104,7 +112,9 @@ const { email } = social;
         </label>
       </div>
       <div class="flex flex-col gap-2">
-        <label class="font-medium" for="message">Message</label>
+        <label class="font-medium" for="message"
+          >Message <span class="text-red-400">*</span></label
+        >
         <textarea
           class="hover-transition rounded-xl border-2 border-main-blue/20 p-4 placeholder:text-dark-blue/50 hover:border-main-blue/40 focus:border-main-blue focus:outline-none dark:bg-accent-blue dark:placeholder:text-light-blue/50"
           placeholder="Type away..."

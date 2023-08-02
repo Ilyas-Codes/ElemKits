@@ -19,19 +19,21 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
   <section
     class="relative w-full space-y-5 p-5 text-center md:mx-0 md:space-y-4 md:p-4"
   >
-    <h1 class="mx-auto w-[650px] text-40px font-medium md:mx-0 md:w-full">
+    <h1 class="mx-auto w-[600px] text-40px font-medium sm:mx-0 sm:w-full">
       Quickly build <span class="text-main-blue">entire</span> Elementor websites
       for <span class="text-main-blue">every niche.</span>
     </h1>
     <div class="flex items-center justify-center gap-4 450:flex-col 450:gap-3">
-      <a aria-label="Search all kits"
+      <a
+        aria-label="Search all kits"
         class="hover-transition flex w-fit items-center justify-center gap-2 rounded-xl bg-main-blue p-4 font-medium text-light-blue hover:bg-main-blue/90 450:w-full 450:p-0 450:py-4"
         href="/search"
       >
         <HiOutlineSearch size={20} />
         Search all kits</a
       >
-      <a aria-label="Search by category"
+      <a
+        aria-label="Search by category"
         class="hover-transition flex w-fit items-center justify-center gap-2 rounded-xl bg-main-blue p-4 font-medium text-light-blue hover:bg-main-blue/90 450:w-full 450:p-0 450:py-4"
         href="/categories"
       >
