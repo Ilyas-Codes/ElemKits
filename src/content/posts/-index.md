@@ -5,6 +5,6 @@ categories: ["categories"]
 tags: tags
 iframe: iframe
 image: image
-pages: ["pages"]
+templates: ["templates"]
 download: download
 ---

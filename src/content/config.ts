@@ -9,7 +9,7 @@ const postsCollection = defineCollection({
     tags: z.string(),
     iframe: z.string(),
     image: z.string(),
-    pages: z.array(z.string()),
+    templates: z.array(z.string()),
     download: z.string(),
     highlights: z
       .array(z.string())

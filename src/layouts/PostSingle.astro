@@ -10,8 +10,15 @@ import {
   PiDeviceMobileSpeakerFill,
 } from "react-icons/pi/index";
 const { post } = Astro.props;
-const { title, description, categories, highlights, pages, iframe, download } =
-  post.data;
+const {
+  title,
+  description,
+  categories,
+  highlights,
+  templates,
+  iframe,
+  download,
+} = post.data;
 ---
 
 <section>
@@ -24,7 +31,8 @@ const { title, description, categories, highlights, pages, iframe, download } =
           {
             categories.map((category: string, i: number) => (
               <li>
-                <a aria-label={post.data.categories}
+                <a
+                  aria-label={post.data.categories}
                   class="hover-transition line-clamp-1 w-fit rounded-lg bg-main-blue px-[10px] py-[6px] text-sm font-medium text-light-blue hover:bg-main-blue/90"
                   href={`/categories/${slugify(category)}`}
                 >
@@ -37,7 +45,8 @@ const { title, description, categories, highlights, pages, iframe, download } =
         </ul>
         <h1 class="text-xl font-medium" set:html={markdownify(title)} />
       </div>
-      <a aria-label="download"
+      <a
+        aria-label="download"
         class="lemonsqueezy-button hover-transition flex w-60 items-center justify-center gap-2 rounded-xl bg-main-blue py-4 font-medium text-light-blue hover:bg-main-blue/90 sm:w-full"
         href={download}
       >
@@ -78,7 +87,8 @@ const { title, description, categories, highlights, pages, iframe, download } =
             size={24}
           />
         </div>
-        <a aria-label="live demo"
+        <a
+          aria-label="live demo"
           class="group flex items-center gap-1 font-medium"
           target="_blank"
           href={iframe}
@@ -104,9 +114,9 @@ const { title, description, categories, highlights, pages, iframe, download } =
       </div>
       <div class="flex items-start gap-10 lg:w-full sm:flex-col sm:gap-5">
         <div class="space-y-2 sm:order-last">
-          <h3 class="text-xl font-medium">Pages</h3>
+          <h3 class="text-xl font-medium">Templates</h3>
           <ul class="space-y-2">
-            {pages.map((page, i) => <li key={i}>{page}</li>)}
+            {templates.map((template, i) => <li key={i}>{template}</li>)}
           </ul>
         </div>
         <div class="space-y-2">

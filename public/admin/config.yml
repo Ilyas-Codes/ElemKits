@@ -22,5 +22,5 @@ collections:
       - { label: "tags", name: "tags", widget: "string" }
       - { label: "iframe", name: "iframe", widget: "string" }
       - { label: "image", name: "image", widget: "image" }
-      - { label: "pages", name: "pages", widget: "list" }
+      - { label: "templates", name: "templates", widget: "list" }
       - { label: "download", name: "download", widget: "string" }
