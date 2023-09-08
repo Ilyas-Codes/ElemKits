@@ -1,0 +1,206 @@
+---
+import Base from "@layouts/Base.astro";
+import config from "@config/config.json";
+import social from "@config/social.json";
+import { GoCheckCircleFill, GoXCircleFill } from "react-icons/go/index";
+import { FiUpload } from "react-icons/fi/index";
+const { contact_form_action } = config.params;
+const { email } = social;
+---
+
+<Base
+  title="Contact"
+  meta_title="Contact"
+  description="Feel free to talk about anything related to ElemKits, or simply drop a friendly Hi!"
+>
+  <main id="thankYou" class="mb-12 hidden items-center justify-center">
+    <div class="w-[500px] space-y-6 px-5 text-center xs:w-full xs:px-4">
+      <GoCheckCircleFill className="text-main-blue mx-auto" size={80} />
+      <div class="space-y-[5px]">
+        <h1 class="text-30px font-medium">Thank you for reaching out!</h1>
+        <p class="leading-relaxed">
+          Your message has been successfully submitted. Expect a response within
+          a few hours.
+        </p>
+      </div>
+      <a
+        aria-label="Back to home"
+        class="hover-transition mx-auto flex w-36 items-center justify-center rounded-xl bg-main-blue py-3 font-medium text-light-blue hover:bg-main-blue/90"
+        href="/">Back to home</a
+      >
+    </div>
+  </main>
+
+  <main id="contactError" class="mb-12 hidden items-center justify-center">
+    <div class="w-[500px] space-y-6 px-5 text-center xs:w-full xs:px-4">
+      <GoXCircleFill className="text-red-400 mx-auto" size={80} />
+      <div class="space-y-[5px]">
+        <h1 class="text-30px font-medium">Something went wrong!</h1>
+        <p class="leading-relaxed">
+          there was an error sending your message. Please check your internet
+          connection and try again. If the problem persists, please reach out
+          directly to this <a
+            aria-label={email}
+            class="text-main-blue"
+            href={`mailto:${email}`}>address</a
+          >
+        </p>
+      </div>
+      <a
+        aria-label="Try again"
+        class="hover-transition mx-auto flex w-36 items-center justify-center rounded-xl bg-main-blue py-3 font-medium text-light-blue hover:bg-main-blue/90"
+        href="/contact">Try again</a
+      >
+    </div>
+  </main>
+
+  <main
+    id="formContainer"
+    class="mx-auto mb-12 w-[600px] space-y-8 p-5 sm:mx-0 sm:w-full sm:p-4"
+  >
+    <div class="w-full space-y-2 text-center">
+      <h1 class="text-30px font-medium">Let's talk</h1>
+      <p class="leading-relaxed">
+        Feel free to talk about anything related to ElemKits, or simply drop a
+        friendly Hi!
+      </p>
+    </div>
+    <form
+      id="myForm"
+      class="flex w-full flex-col gap-5"
+      action={contact_form_action}
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input type="hidden" name="_captcha" value="false" />
+      <div class="flex flex-col gap-2">
+        <label class="font-medium" for="name"
+          >Name <span class="text-red-400">*</span></label
+        >
+        <input
+          class="hover-transition rounded-xl border-2 border-main-blue/20 p-4 placeholder:text-dark-blue/50 hover:border-main-blue/40 focus:border-main-blue focus:outline-none dark:bg-accent-blue dark:placeholder:text-light-blue/50"
+          placeholder="Cool Name"
+          type="text"
+          id="name"
+          name="name"
+          required
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-medium" for="email"
+          >Email <span class="text-red-400">*</span></label
+        >
+        <input
+          class="hover-transition rounded-xl border-2 border-main-blue/20 p-4 placeholder:text-dark-blue/50 hover:border-main-blue/40 focus:border-main-blue focus:outline-none dark:bg-accent-blue dark:placeholder:text-light-blue/50"
+          placeholder="you@cool.com"
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-medium" for="file">Attachment</label>
+        <input class="hidden" type="file" id="file" name="file" />
+        <label
+          id="fileUpload"
+          for="file"
+          class="hover-transition flex cursor-pointer items-center justify-center gap-2 rounded-xl bg-main-blue p-4 text-center font-medium text-light-blue hover:bg-main-blue/90"
+        >
+          <FiUpload size={20} />
+          Upload
+        </label>
+      </div>
+      <div class="flex flex-col gap-2">
+        <label class="font-medium" for="message"
+          >Message <span class="text-red-400">*</span></label
+        >
+        <textarea
+          class="hover-transition rounded-xl border-2 border-main-blue/20 p-4 placeholder:text-dark-blue/50 hover:border-main-blue/40 focus:border-main-blue focus:outline-none dark:bg-accent-blue dark:placeholder:text-light-blue/50"
+          placeholder="Type away..."
+          id="message"
+          name="message"
+          rows="5"
+          required></textarea>
+      </div>
+
+      <button
+        class="hover-transition rounded-xl bg-main-blue p-4 text-center font-medium text-light-blue hover:bg-main-blue/90"
+        type="submit"
+      >
+        Send
+      </button>
+    </form>
+  </main>
+</Base>
+
+<script>
+  const form = document.getElementById("myForm");
+  const submitButton = form.querySelector('button[type="submit"]');
+  const formContainer = document.getElementById("formContainer");
+  const thankYouMessage = document.getElementById("thankYou");
+  const contactError = document.getElementById("contactError");
+  const fileInput = document.getElementById("file");
+  const fileUpload = document.getElementById("fileUpload");
+
+  fileInput.addEventListener("change", () => {
+    if (fileInput.files.length > 0) {
+      fileUpload.textContent = fileInput.files[0].name;
+      fileUpload.classList.add(
+        "bg-main-blue",
+        "hover:bg-main-blue/90",
+        "text-light-blue"
+      );
+      fileUpload.classList.remove(
+        "bg-red-400/10",
+        "hover:bg-red-400/20",
+        "text-red-400"
+      );
+    } else {
+      fileUpload.textContent = "File cancelled";
+      fileUpload.classList.remove(
+        "bg-main-blue",
+        "hover:bg-main-blue/90",
+        "text-light-blue"
+      );
+      fileUpload.classList.add(
+        "bg-red-400/10",
+        "hover:bg-red-400/20",
+        "text-red-400"
+      );
+    }
+  });
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Change the submit button text to "Sending..."
+    submitButton.textContent = "Sending...";
+    submitButton.disabled = true; // Disable the button during submission
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+    })
+      .then((response) => response.text()) // Handle the response as text
+      .then(() => {
+        // Handle the response from the server
+        formContainer.classList.add("hidden");
+        thankYouMessage.classList.remove("hidden");
+        thankYouMessage.classList.add("flex");
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the request
+        console.error(error);
+        submitButton.textContent = "Send";
+        submitButton.disabled = false; // Enable the button
+
+        // Display the error message in the UI
+        formContainer.classList.add("hidden");
+        contactError.classList.remove("hidden");
+        contactError.classList.add("flex");
+      });
+  });
+</script>

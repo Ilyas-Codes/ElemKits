@@ -1,0 +1,36 @@
+---
+import { AiFillGithub } from "react-icons/ai/index";
+import { TbMailFilled } from "react-icons/tb/index";
+const { source, className } = Astro.props;
+const { email, github } = source;
+---
+
+<ul class={className}>
+  {
+    github && (
+      <li>
+        <a
+          target="_blank"
+          aria-label="github"
+          class="hover-transition hover:text-main-blue"
+          href={github}
+        >
+          <AiFillGithub size={21} />
+        </a>
+      </li>
+    )
+  }
+  {
+    email && (
+      <li>
+        <a
+          aria-label="email"
+          class="hover-transition hover:text-main-blue"
+          href={`mailto:${email}`}
+        >
+          <TbMailFilled size={21} />
+        </a>
+      </li>
+    )
+  }
+</ul>

@@ -1,0 +1,10 @@
+---
+title: Arton - Beauty & Spa Salon
+description: Welcome to Arton, the luxurious Elementor template kit designed for beauty and spa salons. Elevate your online presence with our captivating and functional templates. Seamlessly blending aesthetics and functionality, Arton offers a range of layouts tailored for beauty treatments, spa services, and relaxation experiences. Utilize Elementor's intuitive drag-and-drop editor to personalize fonts, colors, and arrangements. Whether you're showcasing beauty services, spa packages, or wellness offerings, Arton ensures an immersive browsing experience. Transform your website into a haven of beauty and tranquility with Arton – the ultimate Elementor template kit for beauty and spa salons. Embrace elegance and self-care today.
+categories: ["Fashion"]
+tags: barber, beauty, beauty center, beauty salon, hair salon, haircut, hairdresser, makeup, manicure, massage, reservation, salon, shop, spa, wellness
+demo: https://kit.freevision.me/arton/
+image: /images/posts/Arton - Beauty & Spa Salon.jpeg
+templates: ["404 Error Page", "About Block", "Blog Archive 01", "Blog Archive 02", "Call To Action 01 Block", "Call To Action Block 02 Block", "Careers", "Colored Content Boxes 01 Block", "Colored Content Boxes 02 Block", "Coming Soon Page", "Contact Form Block", "Contact", "Faq Block", "Featured Products", "Flipcards Service Boxes Block", "Generic Page", "Global", "Hero 01 Block", "Hero 02 Block", "Hero Background Carousel Block", "Hero Background Video Block", "Hero Product Block", "Home Products", "Home Salon", "Job Application Form Block", "Logo Grid Block", "Main Menu Header", "Map Block", "Menu Header Alternate", "Newsletter Popup", "Online Booking Form", "Our Showcase", "Our Story", "Pricing List Block", "Pricing Tabs Block", "Product Archive", "Recent Posts Block", "Salon", "Service Categories Block", "Services Body Popup", "Services Facial Popup", "Services Hair Popup", "Services Makeup Popup", "Services Nails Popup", "Services", "Showcase Gallery Block", "Single Post Type 01", "Single Post Type 02"]
+download: https://elemkits.lemonsqueezy.com/checkout/buy/19392d07-3ba7-4f95-ae6a-7050b3ba72d9
+---

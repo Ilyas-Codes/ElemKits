@@ -1,0 +1,52 @@
+---
+import Base from "@layouts/Base.astro";
+import { IoIosThumbsUp } from "react-icons/io/index";
+import { SiCreativecommons } from "react-icons/si/index";
+---
+
+<Base
+  title="License"
+  meta_title="License"
+  description="To ensure a clear understanding of the permitted usage of the Elementor template kits available on this website, please read and adhere to the following guidelines"
+>
+  <main class="mx-auto mb-12 w-[750px] space-y-8 p-5 md:mx-0 md:w-full">
+    <div class="w-full space-y-4 rounded-xl bg-main-blue/10 p-5">
+      <h1 class="flex items-center gap-2 text-30px font-medium leading-none">
+        <SiCreativecommons />
+        License
+      </h1>
+      <p class="leading-relaxed">
+        All the Elementor template kits available on this website are under the <a
+          aria-label="Creative Commons license"
+          target="_blank"
+          class="font-medium text-main-blue"
+          href="https://creativecommons.org/publicdomain/zero/1.0/"
+          >Creative Commons license.</a
+        >
+        This licensing framework grants you the freedom to use, modify, and tailor
+        the template kits to suit your needs. Below is a breakdown of the permissible
+        actions you can take with the template kits.
+      </p>
+    </div>
+    <div class="space-y-3">
+      <IoIosThumbsUp className="text-main-blue" size={40} />
+      <h2 class="text-xl font-medium">You CAN:</h2>
+      <ul class="list-inside list-disc space-y-3">
+        <li class="leading-relaxed">
+          Opt not to credit ElemKits, but it is always appreciated.
+        </li>
+        <li class="leading-relaxed">
+          Use the template kits for both personal and commercial projects,
+          without any limitations on the number of projects.
+        </li>
+        <li class="leading-relaxed">
+          Customize and modify the template kits to align with your specific
+          needs and project requirements.
+        </li>
+        <li class="leading-relaxed">
+          Redistribute, sublicense, or resell the template kits.
+        </li>
+      </ul>
+    </div>
+  </main>
+</Base>

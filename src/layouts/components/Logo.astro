@@ -1,0 +1,49 @@
+---
+import config from "@config/config.json";
+const {
+  logo,
+  logo_dark,
+  logo_mobile,
+  logo_width,
+  logo_height,
+  logo_mobile_width,
+  logo_mobile_height,
+  title,
+}: {
+  logo: string;
+  logo_dark: string;
+  logo_mobile: string;
+  logo_width: any;
+  logo_height: any;
+  logo_mobile_width: any;
+  logo_mobile_height: any;
+  title: string;
+} = config.site;
+---
+
+<a
+  aria-label="ElemKits"
+  class="hover-transition hover:opacity-80 dark:hidden 2xs:hidden"
+  href="/"
+>
+  <img width={logo_width} height={logo_height} src={logo} alt={title} />
+</a>
+<a
+  aria-label="ElemKits"
+  class="hover-transition hidden hover:opacity-80 dark:block dark:2xs:hidden"
+  href="/"
+>
+  <img width={logo_width} height={logo_height} src={logo_dark} alt={title} />
+</a>
+<a
+  aria-label="ElemKits"
+  class="hover-transition hidden hover:opacity-80 2xs:block"
+  href="/"
+>
+  <img
+    width={logo_mobile_width}
+    height={logo_mobile_height}
+    src={logo_mobile}
+    alt={title}
+  />
+</a>

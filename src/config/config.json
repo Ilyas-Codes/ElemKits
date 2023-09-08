@@ -1,0 +1,32 @@
+{
+  "site": {
+    "title": "ElemKits - Free Template Kits to Supercharge Your Elementor Website",
+    "base_url": "https://elemkits.com/",
+    "base_path": "/",
+    "trailing_slash": false,
+    "favicon": "/images/favicon.svg",
+    "logo": "/images/logo.svg",
+    "logo_dark": "/images/logo_dark.svg",
+    "logo_mobile": "/images/logo_mobile.svg",
+    "logo_width": "132",
+    "logo_height": "30",
+    "logo_mobile_width": "30",
+    "logo_mobile_height": "30",
+    "logo_text": "ElemKits"
+  },
+
+  "settings": {
+    "pagination": 32
+  },
+
+  "metadata": {
+    "meta_author": "ElemKits",
+    "meta_image": "/images/og-image.jpg",
+    "meta_description": "Browse a curated collection of professionally designed, free template kits for Elementor, empowering you to create stunning websites effortlessly."
+  },
+
+  "params": {
+    "contact_form_action": "https://formsubmit.co/c26ae1f591cdf106a39203a41e05099b",
+    "copyright": "© 2023 ElemKits"
+  }
+}

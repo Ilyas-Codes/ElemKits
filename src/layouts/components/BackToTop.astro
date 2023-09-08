@@ -1,0 +1,46 @@
+---
+import { TbArrowUp } from "react-icons/tb/index";
+---
+
+<button
+  id="backToTopBtn"
+  class="back-to-top group fixed bottom-0 right-0 hidden items-center justify-center rounded-full bg-main-blue p-2"
+>
+  <TbArrowUp
+    className="text-light-blue group-hover:-translate-y-1 hover-transition"
+    size={28}
+  />
+</button>
+
+<script>
+  window.addEventListener("scroll", function () {
+    const button = document.getElementById("backToTopBtn");
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollPosition =
+      window.scrollY ||
+      window.scrollY ||
+      document.body.scrollTop ||
+      document.documentElement.scrollTop;
+
+    if (
+      scrollPosition > 100 &&
+      documentHeight - scrollPosition > windowHeight
+    ) {
+      button.classList.remove("hidden");
+      button.classList.add("flex");
+    } else {
+      button.classList.remove("flex");
+      button.classList.add("hidden");
+    }
+  });
+
+  document
+    .getElementById("backToTopBtn")
+    .addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+</script>

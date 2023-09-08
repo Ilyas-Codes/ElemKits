@@ -1,0 +1,16 @@
+---
+import { markdownify } from "@lib/utils/textConverter";
+
+const { data } = Astro.props;
+const { title } = data.data;
+const { Content } = await data.render();
+---
+
+<section>
+  <div>
+    <h1 set:html={markdownify(title)} />
+    <div>
+      <Content />
+    </div>
+  </div>
+</section>

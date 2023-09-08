@@ -1,0 +1,32 @@
+---
+import Base from "@layouts/Base.astro";
+import Search from "@layouts/Search";
+import BackToTop from "@layouts/components/BackToTop.astro";
+import { getSinglePage } from "@lib/contentParser.astro";
+
+// Retrieve all articles
+const posts = await getSinglePage("posts");
+
+// List of items to search in
+const searchList = posts.map((item) => ({
+  slug: item.slug,
+  data: item.data,
+  content: item.body,
+}));
+---
+
+<Base
+  title="Search"
+  meta_title="Search"
+  description="Find the perfect design for your website"
+>
+  <section class="my-5 md:my-4">
+    <h1 class="mx-4 text-center text-30px font-medium">
+      Find the perfect design for your website
+    </h1>
+    <div>
+      <Search client:load searchList={searchList} />
+    </div>
+  </section>
+  <BackToTop />
+</Base>

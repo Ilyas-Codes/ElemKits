@@ -1,0 +1,10 @@
+---
+title: Brilly – Jewelry Store WooCommerce
+description: Introducing Brilly, your ultimate solution for crafting stunning online jewelry stores! This WooCommerce Elementor template kit offers a seamless way to showcase your exquisite pieces. Elevate your customer's shopping experience with captivating layouts, easy navigation, and a modern design. Brilly empowers you to personalize every detail, from product displays to checkout pages, all without any coding. Transform your jewelry business with this user-friendly and responsive template kit. With Brilly, your online store will shine as bright as your gems. Explore the future of jewelry retail today!
+categories: ["Shopping"]
+tags: clean, ecommerce, Elementor Pro, gem, gold, jewelry, luxury, minimal, rings, shop, store, watches, woocommerce, wordpress
+demo: https://brilly.templatekit.co/
+image: /images/posts/Brilly – Jewelry Store WooCommerce.jpeg
+templates: ["About", "Brilly Blog", "Brilly Menu", "Brilly Single Post", "Brillycta", "Contact Popup", "Contact Us", "Error 404", "Faq", "Footer", "Global", "Home 1", "Home 2", "Home 3", "Home 4", "Home Pages Links", "Right Menu", "Search Popup", "Search Results", "Section Banner Boxed", "Section Banner With Button And Element", "Section Banner With Hover Effect", "Section Banners 2 Col Full Width", "Section Blog Featured Posts", "Section Call To Action Block With Colorblocks", "Section Call To Action With Colorblocks Style 2", "Section Contacts", "Section Features On Background", "Section Header With Slider Style 1", "Section Header With Slider Style 2", "Section Header With Slider Style 3", "Section Hero Images Flip Boxes", "Section Image Gallery", "Section Images Accordion", "Section Items Categories Boxed", "Section Items Categories Sidebar", "Section Items Grid", "Section Items Slider", "Section Logo Carousel", "Section Page Title With Background", "Section Small Banners 2 Columns", "Section Small Banners"]
+download: https://elemkits.lemonsqueezy.com/checkout/buy/c635baab-fc74-4d7a-8c48-655b90c305e8
+---

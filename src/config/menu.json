@@ -1,0 +1,28 @@
+{
+  "elementor": [
+    {
+      "name": "Get Elementor",
+      "url": "https://be.elementor.com/visit/?bta=216778&nci=5383"
+    }
+  ],
+  "main": [
+    {
+      "name": "License",
+      "url": "/license"
+    },
+    {
+      "name": "Contact",
+      "url": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Terms of Use",
+      "url": "/terms"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy"
+    }
+  ]
+}
