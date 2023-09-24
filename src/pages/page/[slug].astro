@@ -6,7 +6,7 @@ import Posts from "@layouts/Posts.astro";
 import { getSinglePage } from "@lib/contentParser.astro";
 import { sortByDate } from "@lib/utils/sortFunctions";
 import { HiOutlineSearch } from "react-icons/hi/index";
-import { BiSolidCategory } from "react-icons/bi/index";
+import { BsStars } from "react-icons/bs/index";
 import BackToTop from "@layouts/components/BackToTop.astro";
 
 export async function getStaticPaths() {
@@ -35,42 +35,31 @@ const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
 ---
 
 <Base>
-  <section
-    class="relative w-full space-y-5 p-5 text-center md:mx-0 md:space-y-4 md:p-4"
-  >
+  <section class="w-full space-y-5 p-5 text-center md:mx-0 md:space-y-4 md:p-4">
     <h1 class="mx-auto w-[650px] text-40px font-medium md:mx-0 md:w-full">
       Quickly build <span class="text-main-blue">entire</span> Elementor websites
       for <span class="text-main-blue">every niche.</span>
     </h1>
     <div class="flex items-center justify-center gap-3 450:flex-col">
       <a
-        aria-label="Search all kits"
-        class="hover-transition flex w-fit items-center justify-center gap-2 rounded-xl bg-main-blue p-4 font-medium text-light-blue hover:bg-main-blue/90 450:w-full 450:p-0 450:py-4"
-        href="/search"
+        aria-label="500+ Kits Bundle"
+        class="hover-transition flex w-fit items-center justify-center gap-2 rounded-xl bg-gradient-to-tr from-cyan-500 via-purple-500 to-pink-500 p-4 font-medium text-light-blue shadow-2xl shadow-purple-500/60 hover:opacity-90 450:w-full 450:p-0 450:py-4"
+        href="/bundle"
       >
-        <HiOutlineSearch size={20} />
-        Search all kits</a
+        <BsStars size={20} />
+        500+ Kits Bundle</a
       >
       <a
-        aria-label="Search by category"
-        class="hover-transition flex w-fit items-center justify-center gap-2 rounded-xl bg-main-blue p-4 font-medium text-light-blue hover:bg-main-blue/90 450:w-full 450:p-0 450:py-4"
-        href="/categories"
+        aria-label="Search all kits"
+        class="hover-transition group flex w-fit items-center justify-center gap-2 rounded-xl bg-main-blue/10 p-4 font-medium hover:bg-main-blue/20 450:w-full 450:p-0 450:py-4"
+        href="/search"
       >
-        <BiSolidCategory size={20} />
-        Search by category</a
+        <HiOutlineSearch
+          className="group-hover:text-main-blue hover-transition"
+          size={20}
+        />
+        Search all kits</a
       >
-    </div>
-    <div class="absolute bottom-0 left-10 lg:hidden">
-      <img
-        class="w-[100px] dark:hidden"
-        src="/images/new-kits-added-daily.svg"
-        alt="new-kits-added-daily"
-      />
-      <img
-        class="hidden w-[100px] dark:block"
-        src="/images/new-kits-added-daily-dark.svg"
-        alt="new-kits-added-daily-dark"
-      />
     </div>
   </section>
   <section>

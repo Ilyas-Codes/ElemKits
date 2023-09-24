@@ -7,6 +7,10 @@
   ],
   "main": [
     {
+      "name": "Categories",
+      "url": "/categories"
+    },
+    {
       "name": "License",
       "url": "/license"
     },
